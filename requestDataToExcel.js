@@ -4,10 +4,10 @@ var async = require('async');
 var Promise = require("bluebird");
 var rp = require('request-promise');
 var clientInfoArray = [];
-var startDate = "23/08/2017";
-var endDate = "23/08/2017";
+var startDate = "24/09/2017";
+var endDate = "24/09/2017";
 
-var flowaccountCookie = '.AspNet.ExternalCookie=1qtROWqTBeCeTXvV5avwy1fhxR_LTtDP8LrP29u9z1zpRYi757YWSCkyiy1gfJ8hg9j_y-6UwfwRwK667OEuud3sS0Dbw4l4Y07_y7d9RXUPd5mjltL1dKLqn2wen-H-HgF5DRrnbUFLywdaLYp6lRM5K0pBOpJ0MHN1vyeuR2wZjTf-0rEjcwIehpkMb05v_WvsrFPuOigEcCnKnmxdxQLeNcU-qcplaOdBKmv7pbkZIm6FZTkZxP8Xa_USE96ddK40UcCzWqx1tPsVQubls2QG6eECdHKgNZ_efOD56UucVSKMjc4pfgFF5zdEhULakqPQTOStFoDFoxPSL03RcPLm2XTVlxWRvU6980ZRPRIAMdrzrOsOmbhlTh02Vckt18ZP8PjCpCE3wvrkFwW4GSGrwEczNmLzV1-i3V4sQoeHlmqOEaOwsrhWwDTbY5ip; listNewClicked=true; ; freeTrialNotifications=218; mp_mixpanel__c=21; listNewClicked=true; SERVERID=web5%7CWXeH7%7CWXeGx; showSalesPopup=true; ASP.NET_SessionId=gs0lamu3tjblvbghzfrsxqg5; __RequestVerificationToken=_zx8pPioyL2SGJ5YN41hz2kesDIqN3oJlRQ0kgswXAf8qif79AzrDEBvTAxL1txxOSCCfsNUZbxFdOKHOFMa-vE9bzrXJgiN_aPmzmxBjGE1; AWSELB=39B5C9C70C262FEB823BE8D91E96B47E990F9EE01E8BD10CF2DE49F44851183BE23C452693058C88459F792872823443D63F0CDAFA6FE9BA54CB5C46C78FF4C129A91500F7; AB_TEST_MASTER_COOKIE_Register=SPLIT_GROUP=Register&SPLIT_NAME=Version 1&SPLIT_GOAL=SignupWizard&action=Register&controller=Account&area=&Namespaces=Gismo.AccountingHub.Controllers; _ga=GA1.2.641072738.1497477826; _gid=GA1.2.644041534.1503383083; .AspNet.ExternalCookie=wYpnTu6vTj7SUjhPnqopKqc0Nmh5aUJ2ceoLhVoAhFJ19MlmEoT-3fL9dUzhP0VZsi7ABxtyAYyIJdQSJMoCjknduQzawghAKcXUxGilSICMOwnEK6hDsbAQzFO4IVvBSLNv9r9Ej7a0psDiQ8oC0RZdwE82Fq3DJqeuEhOsU8q7pvyWM4Bw29AbJCHTbXYOPki-xP3QP5LM1I2ucVwDrMzOQWnKWXfTCj0eEuLPyNar0yL75WLAJaQP3vykyqgnEXHu96paJCikIH8az5cG2zBJukXgKh3pW36aTuYkXtAIgcHmAPpygQl-hfcnS5C7HaEUMU7ReDpGZnS2QiY3XOenp8BF1xHAi8UC7Uo4WT_fTI3lRKa85Dlgt4j6WgekI1xRPU07GPbGzZPhQXmjS6WnWyKCPMD03MuPl8lDbT8tqB7l31jQJ76bBXXGGlHfFfkoL9YZxl8YopjBFVKsewiNl_2ws5QNH6W17RcUHck; FlowApp.ApplicationCookie=N4J4pUbcfuvaBTKKZ-WCOSzlUqV0clVfwAOh4chkWJ6g7NPUqga-nwT0xeIZgJX3Chbom5VsdBwrrvn97a40-ZH2-5t8deRp0FBVKMdjQMdRMHf4ETUCZyUhDf69lIWngGQwmaSZyGh9UZObMa4D1J43Asm6PJLd8FWki9_QxIr3BldNSIyduXqqYpokA7BH6_xz2P6WZBfYDQvWwBMnomQwPwAOr_-CDI71nfQzN1w9kT_qvHGFcqCxKqquWrjx9GXw5jMDUFo-1CeIhS07ZhFvz6g1ePCyU5RGIeOrYsB6y8PcWptwwDZKlxm6hIe1k_2jGvYLiJXmVTpZUqEsa5nor-ccldPaXU3suhjc3YdRrYp_Nq0gbBrY84e7XA-qyrrbVNmgDDgx2sMSY0D1ONKYw0icE9eA-uVeTHr8919XkXqIIfsvD6g6M71o9yYqFwlFEGGlUEhNAaEGw_nw7dIFEmIeus-V1t3AN_nxPGclA2FcEmGjOlpOMjVbVU8gX7fs-FJDRANwmqLhB1XMjXXTEllS8Ku8TMwkMEn2hWrVooqZ-RTUVj84KYpU6dux; intercom-session-v8m0o18j=MWxDckR5Ym9pRHllSFdSOXg2Ty9oS2RJZU9MRHBQR01TS214bTZYM01aUWtINlBuUVc3S3FMWkdnVjBrbHA4VC0tKzlDWVdiWjE3Wm1xWWFWby84Y0xEdz09--278516aa2b10e6e27b06345e4816fd2cc2dbb210; mp_41272d18399c471ff77934a08cde5694_mixpanel=%7B%22distinct_id%22%3A%20%2247117%22%2C%22%24initial_referrer%22%3A%20%22%24direct%22%2C%22%24initial_referring_domain%22%3A%20%22%24direct%22%2C%22__mps%22%3A%20%7B%7D%2C%22__mpso%22%3A%20%7B%7D%2C%22__mpa%22%3A%20%7B%7D%2C%22__mpu%22%3A%20%7B%7D%2C%22__mpap%22%3A%20%5B%5D%7D; mp_mixpanel__c=8; myappculture=th; SERVERID=web6|WZ2YQ|WZ2NA';
+var flowaccountCookie = 'freeTrialNotifications=121; mp_mixpanel__c=31; listNewClicked=true; AWSELB=39B5C9C70C262FEB823BE8D91E96B47E990F9EE01E1CFBA1BA32E5CEAE86A9BB2171D46868A5DE9F89A97B906994549002223554A31D6C28581864BEC921F1848BEFCBAAF9; ASP.NET_SessionId=btxcpmfk1ogvkshbmz315h3p; __RequestVerificationToken=8TTVoKGkmgwdb6ixv00MZ9Fpcu5oZcTKPjNapZ68OFOyPcyxIziSjTVXH3Knh5vtEpkgknlNae5Os7KloiSBov0VIUhdf_-VoHcf-fCqVw41; _ga=GA1.2.1264918240.1505822896; _gid=GA1.2.379918577.1505976874; .AspNet.ExternalCookie=a9UPWfUvcT8uK6_gDfLUj9PKPFLG79TFNkcvGcvU7A5f9i3RhXc510otQlere7ucnl_jYTxDJAKK7KXWBAWBaG5arswcXkJXloRZFthvykoGEMYZkOmsd60DNMw4n9rRGNwGdr_rSBLx2F8ocO0VntEos_eZ3H0tJOQLzOPArACgRo7ovYKoGWmYEqkxv8CGpuSiydgMYM_ZrHsfChGYkIVpm6tmnATdZ3PNRbeFp6RrP2wIXyV5BMvch35rInJX5Oy5IdcYh7YocSr3uqR9AH7zpeZHvWlJDmP0J13OEUgZqOs2ukjvxsGuO1yjedej5DM26M3dufoR4qSTVp7XBcb51zspUXIF2zzsFHM9hpFFXVe-Lcyh-NCCxEr4FeSAv1u7nN4NILOfR7gDPoLAMO5AxdgDWtOykA-3Yh9i1ni6UY6tB0K2x1KkaEEJY1fn_cHZOaD_gMhyWt352o9xzcwjkeczQYHMMgangaXCo30; FlowApp.ApplicationCookie=x8LEs9ZnHvZQaiNmCjHc_zpvO8Nhxl3P7Yu6H7JWbE69FvZ9vnkI7uJhQi5tX9H9QIfZI6XpAN1J4mQ7uclsPlpzNBg3a4MqB5_0FEDt8laRlDWo6XAGorcuAsrHOkvuybcMhjUltTEAgKz5YV5jicZ0wG8MVj1TI8Ie5fzHRvBGwuy3ROrjKc_f4Uo9nRgLl8IrWP8peWLt3AlRuGGNjeb5QhzvWxs7ZzAK58u9NX3FHqzrrwur95SrYX6G8I1f0rLeOIoar4y3UmAKfqyiYFB0LPrX0bfI9mhvBDDIkOKvK2PP-y1mlIFc81GA4kjqDl-IEgejIVUYB20Z77wlR9lpi0hD80HueBiIh_tauOlvmwCAcvTVumNzlDLPqcVx5z8gqx_TB1SgHCZCgTJnjymsziQmWJdC2f4daumXuuwPBL--qfiLcuCjhp-jX37__mHaBxvilDMei9F4zeRYjQfFl7mu1t5myhVFHjHm-qUP5x4X5r8Gmm8r8OYg7srwh0lqfUVzLK0X5BYFmN_vNWkMm3z1EVKsxm6tvIx4lYw; mp_41272d18399c471ff77934a08cde5694_mixpanel=%7B%22distinct_id%22%3A%20%2246249%22%2C%22%24initial_referrer%22%3A%20%22https%3A%2F%2Fapp.flowaccount.com%2FCompanyAdmin%2Fth%22%2C%22%24initial_referring_domain%22%3A%20%22app.flowaccount.com%22%2C%22__mps%22%3A%20%7B%7D%2C%22__mpso%22%3A%20%7B%7D%2C%22__mpa%22%3A%20%7B%7D%2C%22__mpu%22%3A%20%7B%7D%2C%22__mpap%22%3A%20%5B%5D%7D; intercom-session-v8m0o18j=NTREQWlINHB6bnd1SWsvQ29zL3dTWGJkNHJLS2xkVDJHYjhSdkNFWDNrYXpBU3lBWklvY1BqdHEvZHl2b0F0Qy0tUngwRlRZM1B0U1pJQmM0bmErQ3FWQT09--087ff1fd84612246e007a97ed7c401c34f7d04d8; SERVERID=web5|WcfzY|WcfKU; mp_mixpanel__c=3; myappculture=th';
 
 var optionsRequestByDocumentId = { method: 'POST',
   url: 'https://app.flowaccount.com/CompanyAdmin/th/Invoice/CheckForInformationUpdates',
@@ -140,17 +140,24 @@ getGridData(function (reqData) {
 
     setTimeout(function() {
       var fs = require('fs');
+      // var mkdirp = require('mkdirp');
+      //
+      // mkdirp('/path/to/dir', function (err) {
+      //     if (err) console.error(err)
+      //     else console.log('dir created')
+      // });
 
       var startDateString = startDate.replace(/\//g, "-");
       var endDateString = endDate.replace(/\//g, "-");
+      // var writeStream = fs.createWriteStream("month-" + startDateString.substring(3,10) + "/ใบเก็บเตา["+startDateString+" - "+endDateString+"].xls");
       var writeStream = fs.createWriteStream("ใบเก็บเตา["+startDateString+" - "+endDateString+"].xls");
       var tab = "\t";
       var newLine = "\n";
 
-      var textToExcel = "Invoice Number" + tab + "ชื่อ" + tab + "เบอร์โทร" + tab + "ราคา" + tab + "ที่อยู่" + newLine;
+      var textToExcel = "Invoice Number" + tab + "ชื่อ" + tab + "ราคา" + tab + "เบอร์โทร" + tab + "ที่อยู่" + newLine;
 
       for(var i=0; i<clientInfoArray.length; i++) {
-        textToExcel += clientInfoArray[i].invoiceNumber + tab + clientInfoArray[i].name + tab + clientInfoArray[i].contactNumber + tab + clientInfoArray[i].value + tab + clientInfoArray[i].addressLine1 + clientInfoArray[i].addressLine2 + newLine;
+        textToExcel += clientInfoArray[i].invoiceNumber + tab + clientInfoArray[i].name + tab + clientInfoArray[i].value + tab + clientInfoArray[i].contactNumber + tab + clientInfoArray[i].addressLine1 + clientInfoArray[i].addressLine2 + newLine;
       }
 
       writeStream.write(textToExcel);
